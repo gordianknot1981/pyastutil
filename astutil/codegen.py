@@ -180,7 +180,7 @@ class SourceGenerator(NodeVisitor):
 
     def visit_ImportFrom(self, node):
         self.newline(node)
-        self.write('from %s%s import ' % ('.' * node.level, node.module))
+        self.write('from %s%s import ' % ('.' * node.level, node.module or ''))
         for idx, item in enumerate(node.names):
             if idx:
                 self.write(', ')
